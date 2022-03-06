@@ -18,6 +18,8 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
+
 
 function Copyright(props: any) {
   return (
@@ -35,20 +37,31 @@ function Copyright(props: any) {
 const theme = createTheme();
 
 export default function SignUp() {
+  let navigate = useNavigate();
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    if (type === "Student") {
+        navigate('/student');
+    }
+    else {
+        navigate('/mentor');
+    }
   };
 
   const [type, setType] = useState("age");
+  const [signup, setSignUp] = useState("Sign Up");
   
-  function handleChange() {
-    return 5;
+  function handleChange(e) {
+    setType(e.target.value);
+    if (e.target.value === "Student") { 
+        setSignUp("ride your career network to the moon")
+    }
+    else {
+        setSignUp("build a portfolio of the best talent")
+    }
+    return;
   }
 
   return (
@@ -67,7 +80,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Welcome to Networkify.
+            Welcome to Networkify
           </Typography>
           <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -93,7 +106,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Your Email"
                   name="email"
                   autoComplete="email"
                 />
@@ -116,11 +129,11 @@ export default function SignUp() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign Up
+              {signup}
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signin" variant="body2">
                   Already have an account? Sign in
                 </Link>
               </Grid>
