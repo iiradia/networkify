@@ -15,35 +15,35 @@ function createData(id, date, name, shipTo, paymentMethod, amount) {
 const rows = [
   createData(
     0,
-    '16 Mar, 2019',
+    'December 8, 2021',
     'Elvis Presley',
-    'Tupelo, MS',
-    'VISA ⠀•••• 3719',
+    'Founder, Plaid',
+    '63 hours',
     312.44,
   ),
   createData(
     1,
-    '16 Mar, 2019',
+    'November 10, 2021',
     'Paul McCartney',
-    'London, UK',
-    'VISA ⠀•••• 2574',
+    'Co-Founder, Rappi',
+    '46 hours',
     866.99,
   ),
-  createData(2, '16 Mar, 2019', 'Tom Scholz', 'Boston, MA', 'MC ⠀•••• 1253', 100.81),
+  createData(2, 'November 13, 2021', 'Jeff Bezos', 'Founder, Amazon', '1 hour', 100.81),
   createData(
     3,
-    '16 Mar, 2019',
+    'July 11, 2021',
     'Michael Jackson',
-    'Gary, IN',
-    'AMEX ⠀•••• 2000',
+    'Partner, Sequoia Capital',
+    '55 hours',
     654.39,
   ),
   createData(
     4,
-    '15 Mar, 2019',
+    'October 5, 2021',
     'Bruce Springsteen',
-    'Long Branch, NJ',
-    'VISA ⠀•••• 5919',
+    'Singer',
+    '105 hours',
     212.79,
   ),
 ];
@@ -55,15 +55,14 @@ function preventDefault(event) {
 export default function Orders() {
   return (
     <React.Fragment>
-      <Title>Recent Orders</Title>
+      <Title>Notable Mentees</Title>
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date</TableCell>
+            <TableCell>Last interaction</TableCell>
             <TableCell>Name</TableCell>
-            <TableCell>Ship To</TableCell>
-            <TableCell>Payment Method</TableCell>
-            <TableCell align="right">Sale Amount</TableCell>
+            <TableCell>Role</TableCell>
+            <TableCell>Hours given back</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -73,13 +72,12 @@ export default function Orders() {
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.shipTo}</TableCell>
               <TableCell>{row.paymentMethod}</TableCell>
-              <TableCell align="right">{`$${row.amount}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
       <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
-        See more orders
+        See more
       </Link>
     </React.Fragment>
   );

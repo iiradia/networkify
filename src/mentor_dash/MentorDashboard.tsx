@@ -122,7 +122,7 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Dashboard
+              Ishaan, welcome to Networkify! Get ready to inspire the next generation of builders🛠️ 
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
